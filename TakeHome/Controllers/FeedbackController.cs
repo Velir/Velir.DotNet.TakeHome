@@ -9,24 +9,22 @@ namespace TakeHome.Controllers
 {
     public class FeedbackController : Controller
     {
-        // GET: Feedback
-        
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
         [ValidateInput(true)]
-        public ActionResult Feedback(FeedbackForm form)
+        public ActionResult Index(FeedbackForm form)
         {
-            if (ModelState.IsValid)
-            {
-                return View("ThankYou", form);
-            }
-            else
-                ViewBag.Result = "Invalid Entries, Kindly Recheck.";
-            return View();
-        }
+            if (!ModelState.IsValid)
+                return View("Index", form);
 
+            //todo: save data
+
+            return View("ThankYou", form);
+        }
     }
 }

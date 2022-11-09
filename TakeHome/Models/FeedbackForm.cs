@@ -8,6 +8,7 @@ namespace TakeHome.Models
 {
 	public class FeedbackForm
 	{
+        [Display(Name = "First Name")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide First Name")]
         [StringLength(25, MinimumLength = 1, ErrorMessage = "First Name Should be min 1 and max 25 length")]
         public String FirstName
@@ -15,6 +16,8 @@ namespace TakeHome.Models
             get;
             set;
         }
+
+        [Display(Name = "Last Name")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Last Name")]
         [StringLength(25, MinimumLength = 1, ErrorMessage = "First Name Should be min 1 and max 25 length")]
         public String LastName
@@ -22,9 +25,10 @@ namespace TakeHome.Models
             get;
             set;
         }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Eamil")]
+
         [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Please Provide Valid Email")]
-        [StringLength(200, MinimumLength = 0, ErrorMessage = "First Name Should be min 1 and max 25 length")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Email")]
+        [StringLength(25, MinimumLength = 1, ErrorMessage = "Email should be min 1 and max 25 length")]
         public String Email
         {
             get;
@@ -32,7 +36,8 @@ namespace TakeHome.Models
         }
 
         [DataType(DataType.MultilineText)]
-        [StringLength(200, MinimumLength = 0, ErrorMessage = "Comments should have a max length of 200")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Comments")]
+        [StringLength(200, ErrorMessage = "Comments should have a max length of 200")]
         public string Comments { get; set; }
 
 

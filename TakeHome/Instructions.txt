@@ -12,7 +12,7 @@ Requirements:
   - All fields are required. 
 	- The character limit for all fields is 25, and 200 for the feedback field.
 	- The email field should be a valid email address.
-- Upon sucessful submission of the form the user should see a thank you page with the form data reflected (see thankyou.html). 
+- Upon successful submission of the form the user should see a thank you page with the form data reflected (see thankyou.html). 
 - If the user submits an invalid form, a validation error message should be displayed on the form page.
 
 The following bugs have been reported with this feature

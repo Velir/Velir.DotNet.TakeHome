@@ -1,15 +1,13 @@
 ﻿@model TakeHome.Models.FeedbackForm
 @{
-	ViewBag.Title = "Feedback";
+    ViewBag.Title = Constants.Views.Titles.Feedback;
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 <div class="form">
-    @*@using (Html.BeginForm("Submit", "Feedback"))*@
-    @using (Html.BeginForm())
+    @using (Html.BeginForm(Constants.Controllers.ActionNamesFeedback.Feedback, Constants.Controllers.Feedback))
     {
-        /* form here */
     <fieldset>
         <div class="editor-label">
             @Html.LabelFor(m => m.FirstName)
@@ -42,6 +40,7 @@
             @Html.EditorFor(m => m.Comments)
             @Html.ValidationMessageFor(m => m.Comments)
         </div>
+
         <div class="masthead-button-wrapper">
             <input class="btn btn-warning" type="submit" value="Submit" />
         </div>

@@ -2,7 +2,7 @@
 
 The customer needs a form page added to the website to collect user feedback. This form needs to include the user's name, their email address, and a text area for their feedback.
 
-Your front-end developer has provided the form markup in an html file.  You need to incorporate this into the existing website.
+Your front-end developer has provided the form markup in an HTML file.  You need to incorporate this into the existing website.
 
 Requirements:
 
@@ -10,9 +10,9 @@ Requirements:
 - Create a model for the form and a controller to process the form post. 
 - The form inputs must be validated. 
   - All fields are required. 
-	- The character limit for all fields is 25, and 200 for the feedback field.
+	- The character limit for all fields is 25, and 200 for the 'Comments' field.
 	- The email field should be a valid email address.
-- Upon sucessful submission of the form the user should see a thank you page with the form data reflected (see thankyou.html). 
+- Upon successful submission of the form the user should see a thank you page with the form data reflected (see thankyou.html). 
 - If the user submits an invalid form, a validation error message should be displayed on the form page.
 
 The following bugs have been reported with this feature

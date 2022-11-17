@@ -1,30 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace TakeHome.Models
 {
-	public class FeedbackForm
-	{
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide First Name")]
-        [StringLength(25, MinimumLength = 1, ErrorMessage = "First Name Should be min 1 and max 25 length")]
+    public class FeedbackForm
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = Constants.Forms.FeedBack.Errors.RequiredFirstName)]
+        [StringLength(Constants.Forms.FeedBack.Validation.FirstNameMaxLengthInt, MinimumLength = Constants.Forms.FeedBack.Validation.FirstNameMinLengthInt, ErrorMessage = Constants.Forms.FeedBack.Errors.LengthFirstName)]
+        [Display(Name = Constants.Forms.FeedBack.Display.FirstName)]
         public String FirstName
         {
             get;
             set;
         }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Last Name")]
-        [StringLength(25, MinimumLength = 1, ErrorMessage = "First Name Should be min 1 and max 25 length")]
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = Constants.Forms.FeedBack.Errors.RequiredLastName)]
+        [StringLength(Constants.Forms.FeedBack.Validation.LastNameMaxLengthInt, MinimumLength = Constants.Forms.FeedBack.Validation.LastNameMinLengthInt, ErrorMessage = Constants.Forms.FeedBack.Errors.LengthLastName)]
+        [Display(Name = Constants.Forms.FeedBack.Display.LastName)]
         public String LastName
         {
             get;
             set;
         }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Eamil")]
-        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Please Provide Valid Email")]
-        [StringLength(200, MinimumLength = 0, ErrorMessage = "First Name Should be min 1 and max 25 length")]
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = Constants.Forms.FeedBack.Errors.RequiredEmail)]
+        [RegularExpression(Constants.Forms.Validation.Email, ErrorMessage = Constants.Forms.FeedBack.Errors.RegexEmail)]
+        [StringLength(Constants.Forms.FeedBack.Validation.EmailMaxLengthInt, MinimumLength = Constants.Forms.FeedBack.Validation.EmailMinLengthInt, ErrorMessage = Constants.Forms.FeedBack.Errors.LengthEmail)]
+        [Display(Name = Constants.Forms.FeedBack.Display.Email)]
         public String Email
         {
             get;
@@ -32,10 +34,8 @@ namespace TakeHome.Models
         }
 
         [DataType(DataType.MultilineText)]
-        [StringLength(200, MinimumLength = 0, ErrorMessage = "Comments should have a max length of 200")]
+        [StringLength(Constants.Forms.FeedBack.Validation.CommentsMaxLengthInt, MinimumLength = 0, ErrorMessage = Constants.Forms.FeedBack.Errors.LengthComments)]
+        [Display(Name = Constants.Forms.FeedBack.Display.Comments)]
         public string Comments { get; set; }
-
-
-
-	}
+    }
 }

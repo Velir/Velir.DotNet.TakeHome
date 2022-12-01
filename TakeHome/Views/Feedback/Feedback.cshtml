@@ -1,50 +1,53 @@
 ﻿@model TakeHome.Models.FeedbackForm
 @{
-	ViewBag.Title = "Feedback";
+    ViewBag.Title = "Feedback";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
+<div class="container">
+    <div class="form row col-xs-12 col-md-6">
+        @*@using (Html.BeginForm("Submit", "Feedback"))*@
+        @using (Html.BeginForm("Feedback", "Feedback", FormMethod.Post))
+        {
+            /* form here */
+            <fieldset>
+                <div class="editor-label form-group">
+                    @Html.LabelFor(m => m.FirstName)
+                </div>
+                <div class="editor-field form-group">
+                    @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="editor-validation">
+                        @Html.ValidationMessageFor(m => m.FirstName)
+                    </div>                    
+                </div>
 
-<div class="form">
-    @*@using (Html.BeginForm("Submit", "Feedback"))*@
-    @using (Html.BeginForm())
-    {
-        /* form here */
-    <fieldset>
-        <div class="editor-label">
-            @Html.LabelFor(m => m.FirstName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(m => m.FirstName)
-            @Html.ValidationMessageFor(m => m.FirstName)
-        </div>
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.LastName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.LastName)
+                    @Html.ValidationMessageFor(m => m.LastName)
+                </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(m => m.LastName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(m => m.LastName)
-            @Html.ValidationMessageFor(m => m.LastName)
-        </div>
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Email)
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(m => m.Email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(m => m.Email)
-            @Html.ValidationMessageFor(m => m.Email)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(m => m.Comments)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(m => m.Comments)
-            @Html.ValidationMessageFor(m => m.Comments)
-        </div>
-        <div class="masthead-button-wrapper">
-            <input class="btn btn-warning" type="submit" value="Submit" />
-        </div>
-    </fieldset>
-    }
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Comments)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(m => m.Comments)
+                    @Html.ValidationMessageFor(m => m.Comments)
+                </div>
+                <div class="masthead-button-wrapper">
+                    <input class="btn btn-warning" type="submit" value="Submit" />
+                </div>
+            </fieldset>
+        }
+    </div>
 </div>

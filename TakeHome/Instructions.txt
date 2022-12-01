@@ -6,7 +6,8 @@ Your front-end developer has provided the form markup in an html file.  You need
 
 Requirements:
 
-- Create a new Feedback page and add it to the site header. The Feedback page should leverage the site layout. The body content area will contain the form markup provided by the front end team (see form.html).
+- Create a new Feedback page and add it to the site header. The Feedback page should leverage the site layout. 
+The body content area will contain the form markup provided by the front end team (see form.html).
 - Create a model for the form and a controller to process the form post. 
 - The form inputs must be validated. 
   - All fields are required. 

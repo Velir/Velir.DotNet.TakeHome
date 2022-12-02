@@ -7,6 +7,9 @@ using System.Web;
 
 namespace TakeHome.Models
 {
+    /// <summary>
+    /// The model for the Feedback page.
+    /// </summary>
     public class FeedbackForm : Base
     {
         /// <summary>
@@ -48,7 +51,7 @@ namespace TakeHome.Models
         /// </summary>
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter your email address.")]
         [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Please enter a valid email address.")]
-        [StringLength(200, MinimumLength = 6, ErrorMessage = "Email address must be between 6 and 200 characters.")]
+        [StringLength(MaximumLength, MinimumLength = 6, ErrorMessage = "Email address must be between 6 and 25 characters.")]
         [DisplayName("* Email Address")]
         public String Email
         {
@@ -57,12 +60,13 @@ namespace TakeHome.Models
         }
 
         /// <summary>
-        /// The Comments field.
+        /// The Feedback field.
         /// </summary>
         [DataType(DataType.MultilineText)]
-        [StringLength(200, MinimumLength = 0, ErrorMessage = "Comments must be 200 characters or less.")]
-        [DisplayName("Comments")]
-        public string Comments { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please provide your feedback.")]
+        [StringLength(200, MinimumLength = MinimumLength, ErrorMessage = "Feedback comments must be between 2 and 200 characters.")]
+        [DisplayName("* Feedback")]
+        public string Feedback { get; set; }
 
 
 

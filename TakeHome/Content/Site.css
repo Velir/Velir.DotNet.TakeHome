@@ -1,7 +1,115 @@
-﻿/*Hides and shows the validation text based on current state.*/
+﻿/* Overall font family for site. */
+* {
+    font-family: 'Montserrat', serif !important;
+}
+
+/* Slight adjustment to general padding to account for header. */
+.body-content {
+    margin-top: 50px;
+}
+
+/* Small underline flair for headers. */
+h1, h2, h3, h4 {
+    margin-bottom: 15px;
+}
+
+    h1:after, h2:after, h3:after, h4:after {
+        content: "";
+        padding-top: 15px;
+        border-bottom: 3px solid #cce5ff;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+/* Styling for form field validation errors. Shows and hides based on current state. */
 form .editor-validation {
     display: none;
+    margin-top: 15px;
+    position: relative;
 }
-form .editor-validation.active {
+
+    form .editor-validation:before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 10px 15px 10px;
+        border-color: transparent transparent #f2dede transparent;
+        position: absolute;
+        top: -15px;
+        left: 15px;
+    }
+
+form .input-validation-error + .editor-validation.active {
     display: block;
 }
+
+form .input-validation-error + input {
+    border-color: #a94442;
+}
+
+form .editor-field {
+    position: relative;
+}
+
+/* Styling for the general form error message. Hides and shows based on state. */
+.form-error {
+    display: none;
+}
+
+    .form-error.active {
+        display: block;
+    }
+
+/* Adjustments to bootstrap's built in accordion. */
+.collapsed-content {
+    margin-bottom: 15px;
+}
+
+    .collapsed-content .collapse-button {
+        color: #004085;
+        border: 1px solid #004085;
+        background-color: #cce5ff;
+        position: relative;
+        display: block;
+        padding: 15px 30px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .collapsed-content .collapse-button:after {
+            content: "+";
+            font-size: 30px;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+    .collapsed-content .card-body {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border: 1px solid #004085;
+        border-top: 0;
+    }
+
+        .collapsed-content .card-body a {
+            font-weight: bold;
+            color: #004085;
+        }
+
+        .collapsed-content .card-body > ul, .collapsed-content .card-body > p {
+            padding-right: 30px;
+        }
+
+        .collapsed-content .card-body > p {
+            padding-left: 30px;
+        }
+
+        .collapsed-content .card-body > ul > li {
+            padding-bottom: 15px;
+        }
+
+    .collapsed-content span {
+        font-weight: bold;
+    }

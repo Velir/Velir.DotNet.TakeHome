@@ -1,14 +1,21 @@
 ﻿@{
-    ViewBag.Title = "We're sorry!";
+    ViewBag.Title = "We're sorry! - Error";
 }
 <h1>@ViewBag.Title</h1>
 <div>
-    <p>An error occurred while processing your request. Please try reloading the page, or click @Html.ActionLink("here", "Index", "Home") to return home.</p>
-    <p>If you continue to recieve this error, please  @Html.ActionLink("contact us", "Contact", "Home") directly.</p>
-    <p>We appologize for the inconvenience.</p>
+    <p>
+        An error occurred while processing your request. Please try reloading the page, or click @Html.ActionLink("here", "Index", "Home") to return home.
+    </p>
+    <p>
+        If you continue to recieve this error, please  @Html.ActionLink("contact us", "Contact", "Home") directly.
+    </p>
+    <p>
+        We appologize for the inconvenience.
+    </p>
 </div>
 <div>
     <ul>
+        <li>Status code: @Response.StatusCode</li>
         <li>
             Time: @DateTime.Now.ToString("MMMM dd, yyyy H:mm:ss", System.Globalization.CultureInfo.InvariantCulture)
         </li>

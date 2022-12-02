@@ -20,6 +20,12 @@ namespace TakeHome
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
+        /// <summary>
+        /// When an error is present, route is adjusted based on what the error is.
+        /// If the error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Application_Error(object sender, EventArgs e)
         {
             var exception = Server.GetLastError();

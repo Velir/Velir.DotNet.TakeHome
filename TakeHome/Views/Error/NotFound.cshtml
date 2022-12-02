@@ -1,16 +1,23 @@
 ﻿@{
-    ViewBag.Title = "We're sorry - Page Not Found";
+    ViewBag.Title = "We're sorry! - " + Response.StatusCode;
+    
 }
 <h1>@ViewBag.Title</h1>
 <div>
-    <p>The page you requested could not be found. Please try reloading the page, or click @Html.ActionLink("here", "Index", "Home") to return home.</p>
-    <p>If you continue to recieve this error, please  @Html.ActionLink("contact us", "Contact", "Home") directly.</p>
-    <p>We appologize for the inconvenience.</p>
+    <p>
+        The page you requested could not be found. Or is inaccessable. Please click @Html.ActionLink("here", "Index", "Home") to return home.
+    </p>
+    <p>
+        If you have previously accessed this page and believe it should be available, please  @Html.ActionLink("contact us", "Contact", "Home") directly for the new URL.
+    </p>
+    <p>
+        We appologize for the inconvenience.
+    </p>
 </div>
 <div>
     <ul>
         <li>
-            @Response.StatusCode
+            Status Code: @Response.StatusCode
         </li>
         <li>
             Time: @DateTime.Now.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.InvariantCulture)

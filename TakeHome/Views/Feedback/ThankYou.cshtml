@@ -2,21 +2,31 @@
 @model FeedbackForm
 
 @{
-    ViewBag.Title = "ThankYou";
+    ViewBag.Title = "Thank You";
 }
 
-<h2>Thank You</h2>
-<fieldset>
-    <div class="editor-label">
-        <label>First Name: @Model.FirstName</label>
+<h1>Thank You</h1>
+<div class="container">
+    <div class="row">
+        <p>
+            Thank you for your submission. Someone will be in contact with you soon.
+        </p>
+        <p>
+            For reference, you can find your submission details below:
+        </p>
+        <fieldset>
+            <div class="editor-label">
+                <label>First Name: @Model.FirstName</label>
+            </div>
+            <div class="editor-label">
+                <label>Last Name: @Model.LastName</label>
+            </div>
+            <div class="editor-label">
+                <label>Email: @Model.Email</label>
+            </div>
+            <div class="editor-label">
+                <label>Feedback: @Model.Feedback</label>
+            </div>
+        </fieldset>
     </div>
-    <div class="editor-label">
-        <label>Last Name: @Model.LastName</label>
-    </div>
-    <div class="editor-label">
-        <label>Email: @Model.Email</label>
-    </div>
-    <div class="editor-label">
-        <label>Comments: @Model.Comments</label>
-    </div>
-</fieldset>
+</div>

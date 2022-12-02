@@ -19,5 +19,38 @@ namespace TakeHome
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        /// <summary>
+        /// When an error is present, route is adjusted based on what the error is.
+        /// If the error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            var exception = Server.GetLastError();
+            if(exception != null)
+            {
+                int errorStatusCode = 0;
+
+                if (exception is HttpException httpException)
+                {
+                    errorStatusCode = httpException.GetHttpCode();
+                }
+
+                // Adjust the errorPath if the status code is in the 400 series. Otherwise, stick with the default.
+                if (errorStatusCode.ToString().StartsWith("4"))
+                {
+                    var errorPath = "~/Error/NotFound";
+                    // Rewrite the request URL to invoke the ErrorController
+                    Response.TrySkipIisCustomErrors = true;
+                    Response.Clear();
+                    Server.ClearError();
+
+                    Server.TransferRequest(errorPath, false);
+                }
+            }
+                    
+        }
     }
 }

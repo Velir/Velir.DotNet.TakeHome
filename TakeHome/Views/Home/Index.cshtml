@@ -1,31 +1,240 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+﻿<div class="jumbotron">
+    <h1>
+        Patt MacMillan - Velir Test
+    </h1>
+    <p class="lead">
+        This website contains bugfixes, adjustments and inhancements as part of the Velir programming assignment. Below you can find the changes made.
+    </p>
+    <p class="lead">
+        I'm excited to share this with the team and garner your feedback. If you have any questions, you can reach me at patt.macmillan@gmail.com.
+    </p>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col-xs-12 collapsed-content">
+        <div>
+            <a class="collapse-button" data-toggle="collapse" href="#instructions" role="button" aria-expanded="false" aria-controls="instructions">
+                Original Instructions
+            </a>
+        </div>
+        <div class="collapse" id="instructions">
+            <div class="card card-body">
+                <p>
+                <p>
+                    <span>Instructions:</span>
+                </p>
+                <p>
+                    The customer needs a form page added to the website to collect user feedback. This form needs to include the user's name, their email address, and a text area for their feedback.
+                </p>
+                <p>
+                    Your front-end developer has provided the form markup in an html file.  You need to incorporate this into the existing website.
+                </p>
+                <p>
+                    <span>Requirements:</span>
+                </p>
+                <ul>
+                    <li>
+                        Create a new Feedback page and add it to the site header. The Feedback page should leverage the site layout.
+                        The body content area will contain the form markup provided by the front end team (see form.html).
+                    </li>
+                    <li>Create a model for the form and a controller to process the form post.</li>
+                    <li>
+                        The form inputs must be validated.
+                    </li>
+                    <li>
+                        All fields are required.
+                    </li>
+                    <li>
+                        The character limit for all fields is 25, and 200 for the feedback field.
+                    </li>
+                    <li>
+                        The email field should be a valid email address.
+                    </li>
+                    <li>
+                        Upon sucessful submission of the form the user should see a thank you page with the form data reflected (see thankyou.html).
+                    </li>
+                    <li>
+                        If the user submits an invalid form, a validation error message should be displayed on the form page.
+                    </li>
+                </ul>
+
+                <p>
+                    <span>
+                        The following bugs have been reported with this feature
+                    </span>
+                </p>
+                <ul>
+                    <li>
+                        The error page is not showing.
+                    </li>
+                    <li>
+                        Our Contact page is missing from the main header.
+                    </li>
+                    <li>
+                        The new Feedback Form page will not load
+                    </li>
+                    <li>
+                        Submitting the form does not work.
+                    </li>
+                    <li>
+                        The thank you page should display the form responses you submitted but does not.
+                    </li>
+                </ul>
+                </p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="col-xs-12 collapsed-content">
+        <div>
+            <a class="collapse-button" data-toggle="collapse" href="#bugfixes" role="button" aria-expanded="false" aria-controls="bugfixes">
+                Bugfixes
+            </a>
+        </div>
+        <div class="collapse" id="bugfixes">
+            <div class="card card-body">
+                <ul>
+                    <li>
+                        Fixed issue where link to <span>Contact</span> page was not present in the header.
+                        <ul>
+                            <li>
+                                This was fixed by adding an additional ActionLink to the header using the appropriate controller and controller action, as well as the link text to display.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Fixed issue where the link to the <a href="/Feedback/Feedback">Feedback (form)</a> page in the header was invalid.
+                        <ul>
+                            <li>This was fixed by adjusting the controller action associated with the link from <span>Index</span> to <span>Feedback</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        Fixed issue where the <span>Index</span> ActionResult on <span>FeedbackController</span> would not properly return the Feedback view.
+                        <ul>
+                            <li>
+                                This was fixed by adjusting the return statement to route to the <span>Feedback</span> view. Note that this means that the <a href="/Feedback">Feedback</a> page can now be accessed via <a href="/Feedback">/Feedback</a> as well as the original <a href="/Feedback/Feedback">/Feedback/Feedback</a> URL.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Fixed issue where the <a href="/Feedback/ThankYou">ThankYou</a> page would not properly retrieve form data and as a result would crash.
+                        <ul>
+                            <li>
+                                This was fixed by adjusting the model on the <span>ThankYou.cshtml</span> view from object to <span>FeedbackForm</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Fixed issue where the <span>Email</span> field is a required field, but allowed a minimum entry of 0.
+                        <ul>
+                            <li>
+                                This was fixed by adjusting the <span>MinimumLength</span> value in the <span>StringLength</span> attribute. This was adjusted to be the minimum email length of a typical email address (<a href="mailto:a@b.cd" target="_blank" rel="noopener">a@b.cd</a>) as well as the length requirement of 6 presented in the regex value.
+                                <ul>
+                                    <li>
+                                        As an additional note, while you theoretically have a shorter email address length, by either using a single character TLD and/or using a non-conformant domain (i.e: such as a short URL in a host file), both are pretty unrealistic interpretations and in the case of the former, does not exist in practice (see: <a href="https://data.iana.org/TLD/tlds-alpha-by-domain.txt" target="_blank" rel="noopener">https://data.iana.org/TLD/tlds-alpha-by-domain.txt</a>).
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Fixed issue where the <span>Feedback</span> field was not required.
+                        <ul>
+                            <li>
+                                This was fixed by adjusting the Attributes on the <span>Feedback</span> property in the <span>FeedbackForm</span> model. As such, I also increased the minimum character count to reflect uniformity with the other fields, although this could be brought back down to 0, but would comprimise the differentiation between an empty input and a "not long enough" input.
+                            </li>
+                            <li>
+                                <span>Note:</span> This was not listed as a bug, but has been adjusted to reflect the initial requirements.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Fixed issue where the <span>Feedback</span> field was incorrectly named "Comments".
+                        <ul>
+                            <li>
+                                <span>Note:</span> This was not listed as a bug, and probably doesn't matter, but I've updated this to simply reflect what's in the requirements.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Fixed issue where the <span>Email</span> field had an incorrect maximum number of characters.
+                        <ul>
+                            <li>
+                                This was fixed by adjusting the maximum number of characters in the StringLength attribute.
+                            </li>
+                            <li>
+                                As a side note, I created variables for Minimum and Maximum length to keep the values consistent if they need to change in the future. These are used for all fields except <span>Email</span> in the case of Minimum, and Feedback in the case of Maximum.
+                            </li>
+                            <li>
+                                <span>Note:</span> This was not listed as a bug, but has been adjusted to reflect the initial requirements.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Fixed issue where validation messages were not displaying properly.
+                        <ul>
+                            <li>
+                                This was fixed by adding a new reference to the validation bundle in <span>_Layout.cshtml</span>.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Fixed issue where <span>Error</span> page was not properly enabled.
+                        <ul>
+                            <li>
+                                This was fixed by adjusting the <span>web.config</span> to allow for custom error pages. Error page was moved for organizational purposes, but could be returned to its original location with some minor tweaks.
+                            </li>
+                            <li>
+                                This can be tested by navigating to the <a href="/Error/ErrorTest">/Error/ErrorTest</a> page.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-xs-12 collapsed-content">
+        <div>
+            <a class="collapse-button" data-toggle="collapse" href="#adjustments" role="button" aria-expanded="false" aria-controls="adjustments">
+                Adjustments & Enhancements
+            </a>
+        </div>
+        <div class="collapse" id="adjustments">
+            <div class="card card-body">
+                <ul>
+                    <li>
+                        Created a <span>404 (Not Found)</span> page. This page will get hit when a user types in or clicks on a non-existent URL/route. This can be tested by going to a dummy URL such as <a href="/test">this invalid page</a>.
+                    </li>
+                    <li>
+                        Added an <span>Application_Error</span> function into Global.asax.
+                        <ul>
+                            <li>
+                                This is to preserve both the error codes as well as the URL in the browser. In the case of the 404 status code, this also has the benefit of preventing browsers that respect the status code from appearing in the browser history.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Added robots metadata flag.
+                        <ul>
+                            By default, I’ve made it so each page is indexed, however in the case of pages that return a 404 error, this gets set to noindex. This can be extended to encapsulate other cases.
+                        </ul>
+                    </li>
+                    <li>
+                        Adjusted the BundleConfig.cs to add an additional “custom” bundle for custom javascript.
+                    </li>
+                    <li>
+                        Removed references in the header to pages that were not part of the assignement.
+                    </li>
+                    <li>
+                        Did a brief passthrough and adjusted some styling and fonts.
+                    </li>
+                    <li>
+                        Made some custom javascript adjustments to enhance the form validation process.
+                    </li>
+                    <li>
+                        Various other small tweaks such as language; added some word flare.
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

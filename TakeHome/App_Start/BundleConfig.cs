@@ -20,10 +20,12 @@ namespace TakeHome
 									"~/Scripts/modernizr-*"));
 
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-								"~/Scripts/bootstrap.js"));
+								"~/Scripts/bootstrap.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
+                                "~/Scripts/main.js"));
 
-			bundles.Add(new StyleBundle("~/Content/css").Include(
-								"~/Content/bootstrap.css",
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+								"~/Content/bootstrap.min.css",
 								"~/Content/site.css"));
 		}
 	}

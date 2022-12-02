@@ -6,24 +6,26 @@ using System.Web.Mvc;
 
 namespace TakeHome.Controllers
 {
+	/// <summary>
+	/// The Home controller.
+	/// </summary>
 	public class HomeController : Controller
 	{
+		/// <summary>
+		/// Returns the homepage.
+		/// </summary>
+		/// <returns></returns>
 		public ActionResult Index()
 		{
 			return View();
 		}
 
-		public ActionResult About()
-		{
-			ViewBag.Message = "Your application description page.";
-
-			return View();
-		}
-
+		/// <summary>
+		/// Returns the Contact page.
+		/// </summary>
+		/// <returns></returns>
 		public ActionResult Contact()
 		{
-			ViewBag.Message = "Your contact page.";
-
 			return View();
 		}
 	}

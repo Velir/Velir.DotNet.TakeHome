@@ -16,8 +16,9 @@ namespace TakeHome.Controllers
         /// Returns the form page directly.
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index() {
-            return View("Feedback");
+        public ActionResult Index(FeedbackForm form) {
+            // If the form submitted sucessfully, redirect to the ThankYou page and passthrough the form data.
+            return Redirect("/Feedback/Feedback");
         }
 
         /// <summary>

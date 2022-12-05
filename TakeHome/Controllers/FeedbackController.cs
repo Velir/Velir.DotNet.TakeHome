@@ -13,7 +13,7 @@ namespace TakeHome.Controllers
         
         public ActionResult Index()
         {
-            return View();
+            return View("Feedback");
         }
 
         [ValidateInput(true)]
@@ -23,9 +23,8 @@ namespace TakeHome.Controllers
             {
                 return View("ThankYou", form);
             }
-            else
-                ViewBag.Result = "Invalid Entries, Kindly Recheck.";
-            return View();
+               
+            return View("Error");
         }
 
     }

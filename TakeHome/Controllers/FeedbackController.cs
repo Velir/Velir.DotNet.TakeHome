@@ -13,7 +13,7 @@ namespace TakeHome.Controllers
         
         public ActionResult Index()
         {
-            return View();
+            return View("Feedback");
         }
 
         [ValidateInput(true)]

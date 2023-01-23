@@ -24,7 +24,7 @@ namespace TakeHome.Models
         }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide Eamil")]
         [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Please Provide Valid Email")]
-        [StringLength(25, MinimumLength = 0, ErrorMessage = "Email Should be min 1 and max 25 length")]
+        [StringLength(25, MinimumLength = 1, ErrorMessage = "Email Should be min 1 and max 25 length")]
         public String Email
         {
             get;

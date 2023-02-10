@@ -1,4 +1,4 @@
-﻿@model TakeHome.Models.FeedbackForm
+﻿@model TakeHome.Models.FeedbackForms
 @{
 	ViewBag.Title = "Feedback";
 }
@@ -7,7 +7,7 @@
 
 <div class="form">
     @*@using (Html.BeginForm("Submit", "Feedback"))*@
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Feedback", "Feedback"))
     {
         /* form here */
     <fieldset>

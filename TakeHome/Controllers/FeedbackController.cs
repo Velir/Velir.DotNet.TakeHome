@@ -13,10 +13,16 @@ namespace TakeHome.Controllers
         
         public ActionResult Index()
         {
-            return View();
+            return View("FeedBack");
+        }
+
+        public ActionResult FeedbackGoneWrong()
+        {
+            return View("FeedbackGoneWrong"); // but this view does not exist, so it should show error page
         }
 
         [ValidateInput(true)]
+        [HttpPost]
         public ActionResult Feedback(FeedbackForm form)
         {
             if (ModelState.IsValid)

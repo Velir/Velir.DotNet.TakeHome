@@ -7,7 +7,7 @@
 
 <div class="form">
     @*@using (Html.BeginForm("Submit", "Feedback"))*@
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Feedback", "FeedBack", FormMethod.Post))
     {
         /* form here */
     <fieldset>

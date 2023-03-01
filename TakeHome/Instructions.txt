@@ -17,8 +17,8 @@ Requirements:
 
 The following bugs have been reported with this feature
 
-The error page is not showing.
-Our Contact page is missing from the main header.
-The new Feedback Form page will not load
-Submitting the form does not work.
-The thank you page should display the form responses you submitted but does not.
+The error page is not showing. - <customErrors defaultRedirect="Error" mode="On" redirectMode="ResponseRewrite">
+Our Contact page is missing from the main header. -  <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+The new Feedback Form page will not load -  return View("FeedBack");
+Submitting the form does not work. - [HttpPost]
+The thank you page should display the form responses you submitted but does not. - @model TakeHome.Models.FeedbackForm
